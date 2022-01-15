@@ -14,16 +14,32 @@ public class MouseListener {
         // not initializing this could cause error when launching game
         this.scrollX = 0;
         this.scrollY = 0;
-        this. xPos = 0;
+        this.xPos = 0;
         this.yPos = 0;
         this.lastX = 0;
         this.lastY = 0;
     }
 
     public static MouseListener get() {
-        if (instance == null){
-            instance = new MouseListener();
+        if (MouseListener.instance == null) {
+            MouseListener.instance = new MouseListener();
         }
-        return instance;
+        return MouseListener.instance;
     }
+    /*
+     * Go to GLFW startup guide and reference necessary callback functions
+     * needed for mouse inputs. Its in C in the guide*****
+     */
+
+    public static void mousePosCallback(long window, double xpos, double ypos) {
+        //set current X,Y mouse position to last mouse position
+        get().lastX = get().xPos;
+        get().lastY = get().yPos;
+
+        //set current X,Y mouse positions from method parameters
+        get().xPos = xpos;
+        get().yPos = ypos;
+
+    }
+
 }
