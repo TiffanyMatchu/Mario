@@ -21,23 +21,24 @@ public class Window {
     private static Window window = null;
     private long glfwWindow;
 
-    private Window(){
+    private Window() {
         this.width = 1920;
         this.height = 1080; //user no touch these
         this.title = "Mario";
     }
-   /*
-   * One instance of window is created upon initial call of get method, every
-   * other call to method will result in original method being returned
-   */
-    public static Window getWindow(){
-        if(Window.window == null){
+
+    /*
+     * One instance of window is created upon initial call of get method, every
+     * other call to method will result in original method being returned
+     */
+    public static Window getWindow() {
+        if (Window.window == null) {
             Window.window = new Window();
         }
         return Window.window;
     }
 
-    public void run(){
+    public void run() {
         //Checks to see if LWJGL is working
         System.out.println("Hello LWJGL" + Version.getVersion() + "!");
 
@@ -54,29 +55,29 @@ public class Window {
         glfwSetErrorCallback(null).free();
     }
 
-    public void init(){
+    public void init() {
         //Set up error call back So GLFW can print any errors that occur
         GLFWErrorCallback.createPrint(System.err).set(); //creates print statement to show error
 
         //Initialize GLFW
-        if (!glfwInit()){ //returns true if initialization if false throws error
+        if (!glfwInit()) { //returns true if initialization if false throws error
             throw new IllegalStateException("Unable to initialize GLFW");
         }
 
         //Configure GLFW
         glfwDefaultWindowHints(); //hints example, resizeable? visible? etc
-        glfwWindowHint(GLFW_VISIBLE,GLFW_FALSE); //not visible until window is finished later
-        glfwWindowHint(GLFW_RESIZABLE,GLFW_TRUE); //should be default
-        glfwWindowHint(GLFW_MAXIMIZED,GLFW_TRUE); //Starts window in maximized position
+        glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE); //not visible until window is finished later
+        glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE); //should be default
+        glfwWindowHint(GLFW_MAXIMIZED, GLFW_TRUE); //Starts window in maximized position
         //hints were set first because GLFW will use those hints to create window
         /*
-        * Create Window
-        * Create a window returns a long for a memory space for where the window is
-        * */
-        glfwWindow = glfwCreateWindow(this.width,this.height,this.title,NULL, NULL);
+         * Create Window
+         * Create a window returns a long for a memory space for where the window is
+         * */
+        glfwWindow = glfwCreateWindow(this.width, this.height, this.title, NULL, NULL);
 
         //check if window was made
-        if (glfwWindow == NULL){
+        if (glfwWindow == NULL) {
             throw new IllegalStateException("Failed to create new GLFW window");
         }
 
@@ -94,10 +95,11 @@ public class Window {
         GL.createCapabilities();
 
     }
-    public void loop(){
+
+    public void loop() {
 
         //while window is open
-        while (!glfwWindowShouldClose(glfwWindow)){
+        while (!glfwWindowShouldClose(glfwWindow)) {
             //Poll events ** key listeners
             glfwPollEvents();
             // Set the clear color
