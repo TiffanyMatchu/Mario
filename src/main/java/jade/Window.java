@@ -3,6 +3,7 @@ package jade;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
+import util.Time;
 
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
 import static org.lwjgl.glfw.GLFW.*;
@@ -103,7 +104,8 @@ public class Window {
     }
 
     public void loop() {
-
+        float beginTime = Time.getTime(); //Frame begin
+        float endTime;//time frame ends
         //while window is open
         while (!glfwWindowShouldClose(glfwWindow)) {
             //Poll events ** key listeners
@@ -112,6 +114,13 @@ public class Window {
             glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT); //flushes color to entire screen
             glfwSwapBuffers(glfwWindow);
+
+            //at the end of the game loop get end time
+            endTime = Time.getTime();
+            //determine delta time used for scenes
+            float dt = endTime - beginTime;
+            //swap begin time with endtime to get the start of the new frame
+            beginTime = endTime;
         }
     }
 }
