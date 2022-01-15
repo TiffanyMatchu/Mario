@@ -46,6 +46,8 @@ public class MouseListener {
         //set current X,Y mouse positions from method parameters
         get().xPos = xPos;
         get().yPos = yPos;
+        //if any mouseButtonsPressed == true. Dragging will be true
+        get().isDragging = get().mouseButtonPressed[0] || get().mouseButtonPressed[1] || get().mouseButtonPressed[3];
     }
 
     //mods are modifiers ie... hitting ctrl with mouse click
@@ -74,5 +76,42 @@ public class MouseListener {
         get().scrollY = 0;
         get().lastX = get().xPos; //apparently this sets xPos to zero. Not sure how tho?
         get().lastY = get().yPos;
+    }
+
+    public static float getX() {
+        return (float) get().xPos;
+    }
+
+    public static float getY() {
+        return (float) get().yPos;
+    }
+
+    //gives the amount of lapsed X,Y positions in the current frame
+    public static float getDx() {
+        return (float) (get().lastX - get().xPos);
+    }
+
+    public static float getDy() {
+        return (float) (get().lastY - get().yPos);
+    }
+
+    public static float getScrollX() {
+        return (float) get().scrollX;
+    }
+
+    public static float getScrollY() {
+        return (float) get().scrollY;
+    }
+
+    public static boolean getDragging() {
+        return get().isDragging;
+    }
+
+    public static boolean mouseButtonDown(int button) {
+        if (button < get().mouseButtonPressed.length) {
+            return get().mouseButtonPressed[button];
+        } else {
+            return false;
+        }
     }
 }
