@@ -112,6 +112,9 @@ public class Window {
             glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
             glClear(GL_COLOR_BUFFER_BIT); //flushes color to entire screen
 
+            if (KeyListener.isKeyPressed(GLFW_KEY_SPACE)) {
+                System.out.println("Space Key PRESSED");
+            }
 
             glfwSwapBuffers(glfwWindow);
         }

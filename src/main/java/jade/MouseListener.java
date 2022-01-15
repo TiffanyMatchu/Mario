@@ -47,7 +47,7 @@ public class MouseListener {
         get().xPos = xPos;
         get().yPos = yPos;
         //if any mouseButtonsPressed == true. Dragging will be true
-        get().isDragging = get().mouseButtonPressed[0] || get().mouseButtonPressed[1] || get().mouseButtonPressed[3];
+        get().isDragging = get().mouseButtonPressed[0] || get().mouseButtonPressed[1] || get().mouseButtonPressed[2];
     }
 
     //mods are modifiers ie... hitting ctrl with mouse click
