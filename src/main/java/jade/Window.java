@@ -75,21 +75,22 @@ public class Window {
         glfwSwapInterval(1);
         //make window visible
         glfwShowWindow(glfwWindow); //creates window from the long, which points to a memory slot
-
-    }
-    public void loop(){
         // This line is critical for LWJGL's interoperation with GLFW's
         // OpenGL context, or any context that is managed externally.
         // LWJGL detects the context that is current in the current thread,
         // creates the GLCapabilities instance and makes the OpenGL
         // bindings available for use.
         GL.createCapabilities();
-        // Set the clear color
-        glClearColor(1.0f, 0.0f, 0.0f, 0.0f); //sets
+
+    }
+    public void loop(){
+
         //while window is open
         while (!glfwWindowShouldClose(glfwWindow)){
             //Poll events ** key listeners
             glfwPollEvents();
+            // Set the clear color
+            glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
             glClear(GL_COLOR_BUFFER_BIT); //flushes color to entire screen
             glfwSwapBuffers(glfwWindow);
         }
