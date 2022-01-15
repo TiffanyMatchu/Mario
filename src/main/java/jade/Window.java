@@ -11,7 +11,6 @@ import static org.lwjgl.system.MemoryUtil.NULL;
 
 
 /**
- * Created by Tiffany Matthew on 1/14/22.
  * Singleton class... only one instance of window will exist
  */
 public class Window {
@@ -63,7 +62,6 @@ public class Window {
         if (!glfwInit()) { //returns true if initialization if false throws error
             throw new IllegalStateException("Unable to initialize GLFW");
         }
-
         //Configure GLFW
         glfwDefaultWindowHints(); //hints example, resizeable? visible? etc
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE); //not visible until window is finished later
@@ -80,6 +78,14 @@ public class Window {
         if (glfwWindow == NULL) {
             throw new IllegalStateException("Failed to create new GLFW window");
         }
+        /*
+         * Mouse Callback functions using lambda functions. Forwards callback to the selected
+         * MouseListener function.
+         */
+        glfwSetCursorPosCallback(glfwWindow, MouseListener::mousePosCallback);
+        glfwSetMouseButtonCallback(glfwWindow, MouseListener::mouseButtonCallback);
+        glfwSetScrollCallback(glfwWindow, MouseListener::mouseScrollCallback);
+        glfwSetKeyCallback(glfwWindow, KeyListener::keyCallback);
 
         //Make the OpenGL context current
         glfwMakeContextCurrent(glfwWindow);
@@ -105,6 +111,8 @@ public class Window {
             // Set the clear color
             glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
             glClear(GL_COLOR_BUFFER_BIT); //flushes color to entire screen
+
+
             glfwSwapBuffers(glfwWindow);
         }
     }

@@ -3,7 +3,7 @@ package jade;
 import static org.lwjgl.glfw.GLFW.*;
 
 /**
- * Created by Tiffany Matthew on 1/14/22.
+ * Callbacks for this class will go in Window, just after window is created in init().
  */
 public class MouseListener {
     private static MouseListener instance;

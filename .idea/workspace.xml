@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b5b7117-7ea0-4fa3-a8e8-76379c6ca3a7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/jade/KeyListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jade/MouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/MouseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jade/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jade/Window.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642273440495</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="get methods added">
+      <created>1642274878202</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1642274878202</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -155,7 +164,8 @@
     <MESSAGE value="Added mouse position callback method" />
     <MESSAGE value="Added mouse button callback method" />
     <MESSAGE value="Added end frame method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added end frame method" />
+    <MESSAGE value="get methods added" />
+    <option name="LAST_COMMIT_MESSAGE" value="get methods added" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
