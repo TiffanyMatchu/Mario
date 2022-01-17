@@ -20,6 +20,8 @@ public class Window {
     private final String title;
     private static Window window = null;
     private long glfwWindow;
+    private static Scene currentScene;
+
 
     private Window() {
         this.width = 1920;
@@ -36,6 +38,21 @@ public class Window {
             Window.window = new Window();
         }
         return Window.window;
+    }
+
+    public static void changeScene(int newScene) {
+        switch (newScene) {
+            case 0:
+                currentScene = new LevelEditorScene();
+                //currentScene.init();
+                break;
+            case 1:
+                currentScene = new LevelScene();
+                //currentScene.init();
+                break;
+            default: //What is assert
+                assert false : "Unknown scene '" + newScene + "'";
+        }
     }
 
     public void run() {
